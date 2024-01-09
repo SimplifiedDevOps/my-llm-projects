@@ -1,5 +1,4 @@
-repository:
-  name: giapps-maven-dev5
+repository_name: giapps-maven-dev5
   anonymous_read_only_access: Yes
   repository_poc:
     - ccardoso
