@@ -17,5 +17,5 @@ if __name__ == "__main__":
         print("Usage: python process_config.py <config_file>")
         sys.exit(1)
 
-config_file = sys.argv[1]
+    config_file = sys.argv[1]
     process_config(config_file)
