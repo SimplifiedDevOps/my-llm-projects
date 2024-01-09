@@ -1,16 +1,16 @@
-name: Process Configuration
-
 on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+  workflow_dispatch:
+    paths:
+      - '.github/workflows/**'
+      - 'repo_creation_config.yaml'
 
 jobs:
   process_config:
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        config_file: [repo_creation_config.yaml]
 
     steps:
       - name: Checkout Repository
@@ -24,5 +24,5 @@ jobs:
       - name: Install Dependencies
         run: pip install pyyaml
 
-      - name: Execute Python Script
-        run: python .github/scripts/process_config.py .github/workflows/repo_creation_workflow.yml
+      - name: Validate and Process Config
+        run: python .github/scripts/process_config.py
